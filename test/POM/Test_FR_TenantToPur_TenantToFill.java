@@ -2,6 +2,7 @@ package POM;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,16 +57,17 @@ public class Test_FR_TenantToPur_TenantToFill {
 	
 	
 	@BeforeMethod
-	public void setUp() 
+	@Parameters({"url", "emailID", "password"})
+	public void setUp(String url, String emailID, String Password) 
 	{
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\swapnilb\\workspace\\chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.navigate().to("http://88.208.208.58:1011/public/app/#");
+		driver.navigate().to(url);
 		driver.manage().window().maximize();
 	
 		Login_Page TestLogin = PageFactory.initElements(driver,Login_Page.class);
-		TestLogin.authentication("swapnilbhaskar@benchmarkitsolutions.com", "bits1234");	
+		TestLogin.authentication(emailID, Password);	
 	}
   
 	

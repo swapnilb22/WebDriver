@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parameterization Test Suite">
+	<test name="Testing Parameterization">
+	<parameter name="url" value="http://88.208.208.58:1011/public/app/#"/>
+	<parameter name="emailID" value="swapnilbhaskar@benchmarkitsolutions.com"/>
+	<parameter name="password" value="bits1234"/>
+		<classes>
+			<class name="POM.Test_FR_TenantToPur_TenantToFill" />
+		</classes>
+	</test>
+</suite>
